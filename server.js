@@ -3,8 +3,8 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const models = require('./models');
-// const routes = require('./routes');
+// const models = require('./models');
+const routes = require('./routes/web/home');
 
 const sequelize = require('./config/connect');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -36,7 +36,7 @@ app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// TODO add my routes: app.use(routes);
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log("Now listening http://localhost:" + PORT));
