@@ -9,7 +9,7 @@ function createUser(){
     const lastName = faker.name.lastName();
 
 
-    User.create({
+    return User.create({
         name: firstName + ' ' + lastName,
         email: faker.internet.email(firstName, lastName),
         password: 'password',
@@ -17,13 +17,13 @@ function createUser(){
 
 };
 
-function createBlog() {
+function createBlog(user) {
 
     return Blog.create({
         
         title: faker.lorem.sentence(),
         body: faker.lorem.paragraphs(),
-        user_id: User.id,
+        user_id: user.id,
 
     });
 };
@@ -34,14 +34,14 @@ function createComment(user, blog) {
     return Comment.create({
         
         body: faker.lorem.paragraphs(1),
-        user_id: User.id,
+        user_id: user.id,
         blog_id: blog.id,
 
     });
 };
 
 
-async function seedDatabase(){
+async function seedDatabase() {
 
     const createdUsers = [];
     const createdBlogs = [];
@@ -54,9 +54,9 @@ async function seedDatabase(){
     
     // Seed users' table
     for (let index = 0; index < 5; index++) {
-       const created = await createUser();
+       const createdUser = await createUser();
 
-       createdUsers.push(created);
+       createdUsers.push(createdUser);
         
     };
 
