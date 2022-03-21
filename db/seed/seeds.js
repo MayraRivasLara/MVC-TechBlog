@@ -51,8 +51,7 @@ async function seedDatabase() {
     
     // Truncate function to avoid tables to get too crowded.
     await sequelize.sync({ force: true });
-    console.log("All models were synchronized successfully!");
-    
+  
     
     // Seed users' table
     for (let index = 0; index < 5; index++) {
@@ -66,8 +65,10 @@ async function seedDatabase() {
     // Seed blogs' table
     for (let index = 0; index < 5; index++) {
         
-        const createdBlog = await createBlog(faker.random.arrayElement(createdUsers));
-        createdBlogs.push(createdBlog);
+        const createdBlog = await createBlog(
+            faker.random.arrayElement(createdUsers));
+            
+            createdBlogs.push(createdBlog);
         
     }
     
