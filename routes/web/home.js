@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User } = require('../../models');
+const { Blog, User, Comment } = require('../../models');
 
 
 router.get('/home', (req, res) => {
@@ -15,7 +15,7 @@ router.get('/home', (req, res) => {
             
             const blogsJson = blogs.map((blog) => blog.toJSON()); 
             
-            console.log(blogJson)
+            console.log(blogsJson)
             res.render('blogs', {
                 blogs: blogsJson,
             });
@@ -23,4 +23,4 @@ router.get('/home', (req, res) => {
     
 })
 
-module.exports =  router;
+module.exports = router;

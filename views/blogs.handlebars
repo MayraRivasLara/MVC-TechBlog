@@ -4,7 +4,7 @@
 
     {{#each blogs as |blog| }}
 
-        <h1>{{blog.title}} -- {{blog.createdAt}}</h1>
+        <h1>{{blog.title}} {{blog.createdAt}}</h1>
 
         <p>Written by: {{blog.user.name}}</p>
 
@@ -12,15 +12,6 @@
             {{blog.body}}
         </p>
 
-
-
-    
-
-
-
     {{/each}}
-
-
-
 
 </section>
