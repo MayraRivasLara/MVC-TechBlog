@@ -23,4 +23,12 @@ router.get('/home', (req, res) => {
     
 })
 
+router.get('/loginn', (req, res) => {
+
+    res.render('login', {
+        aa: '<p>1234</p>'
+    });
+
+});
+
 module.exports = router;
