@@ -3,7 +3,6 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-// const models = require('./models');
 const routes = require('./routes/web/home');
 
 const sequelize = require('./config/connect');
